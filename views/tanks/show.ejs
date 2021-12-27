@@ -22,7 +22,7 @@
                 <%if(v.tank[1] === "A"){%>
                     <li><%=v.tank%></li>
                 <ul>
-                    <li><b>Total:</b> <%=v.totalV%> <b>Water:</b> <%=v.waterV%> <b>Product:</b> <%=v.productV%></li>
+                    <a href="/volumes/<%=v._id%>/edit"><li><b>Total:</b> <%=v.totalV%> <b>Water:</b> <%=v.waterV%> <b>Product:</b> <%=v.productV%></li></a>
                 </ul>
                 <%}%>
             <%}%>
@@ -35,7 +35,7 @@
                 <%if(v.tank[1] === "B"){%>
                     <li><%=v.tank%></li>
                 <ul>
-                    <li><b>Total:</b> <%=v.totalV%> <b>Water:</b> <%=v.waterV%> <b>Product:</b> <%=v.productV%></li>
+                    <a href="/volumes/<%=v._id%>/edit"><li><b>Total:</b> <%=v.totalV%> <b>Water:</b> <%=v.waterV%> <b>Product:</b> <%=v.productV%></li></a>
                 </ul>
                 <%}%>
             <%}%>

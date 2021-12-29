@@ -16,6 +16,7 @@ mongoose.connect('mongodb://localhost:27017/fracTank')
     })
 
 app.set('views', path.join(__dirname, 'views'));
+app.use(express.static(path.join(__dirname, 'public')));
 app.set('view engine', 'ejs');
 
 app.use(express.urlencoded({extended: true}));
@@ -28,8 +29,8 @@ app.get('/', async (req, res) => {
 })
 
 //Read all volumes
-app.get('/volumes', async (req, res) => {
-    const volumes = await Volume.find({});
+app.get('/volumes', async (req, res) => {   
+    const volumes = await Volume.find({}); 
     res.render('tanks/index', { volumes });
 })
 

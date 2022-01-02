@@ -7,6 +7,9 @@ const ejsMate = require('ejs-mate');
 
 const Volume = require('./models/volume');
 
+const tanks = ["1A", "1B", "2A", "2B", "3A", "3B"];
+const zones = [1, 2, 3]
+
 mongoose.connect('mongodb://localhost:27017/fracTank')
     .then(() => {
         console.log("Mongo Connection Open")
@@ -44,28 +47,38 @@ app.get('/volumes/:zones/view', async (req, res) => {
 })
  
 //Go to volume add page
-app.get('/volumes/new', (req, res) => {
-    res.render('tanks/new') 
+app.get('/volumes/:zone/new', (req, res) => { 
+    const { zone } = req.params;
+    if(zone == 1){
+        res.render(`tanks/zone1`, { tanks, zones });
+    }
+    else if(zone == 2){
+        res.render(`tanks/zone2`, { tanks, zones });
+    }
+    else if(zone == 3){
+        res.render(`tanks/zone3`, { tanks, zones });
+    }
+ 
 })
 
 //Post new data
 app.post('/volumes', async (req, res) => {
-    const newVolume = new Volume(req.body)
+    const newVolume = new Volume(req.body);
     await newVolume.save(); //Saved to db
     res.redirect(`/volumes/${newVolume.zone}/view`);
 })
 
-//Edit an entry
+//Edit an entry 
 app.get('/volumes/:id/edit', async (req, res) => {
     const { id } = req.params
     const foundVolume = await Volume.findById(id);
-    res.render('tanks/edit', { foundVolume });
+    res.render('tanks/edit', { foundVolume, tanks, zones });
 })
 
 app.put('/volumes/:id', async (req, res) => {
     const { id } = req.params;
     const volume = await Volume.findByIdAndUpdate(id, req.body, { runValidators: true, new: true })
-    res.redirect('/volumes');
+    res.redirect(`/volumes/${volume.zone}/view`);
 })
 
 app.delete('/volumes/:id', async (req, res) => {

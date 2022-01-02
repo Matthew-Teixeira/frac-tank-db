@@ -1,0 +1,122 @@
+<% layout('partials/boilerplate') %>
+
+<div class="row mt-3">
+  <div class="col-5 offset-1">
+    <div class="inputs">
+      <h2 id="tank-page">Tank 2A</h2>
+      <form id="tank2AInputs" class="flex">
+        <input type="number" step="0.01" placeholder="DTP" />
+        <input type="number" step="0.01" placeholder="DTW" />
+        <button class="btn btn-primary">Calculate</button>
+      </form>
+    </div>
+
+    <div>
+      <form action="/volumes" method="post">
+
+        <label class="form-label" for="zone">Zone</label>
+        <input class="form-control" type="number" name="zone" id="zone" value="2" min="2" max="2">
+          
+        <label class="form-label" for="tank">Tank: </label>
+        <select class="form-select" name="tank" id="tank">
+            <option value="2A">2A</option>
+        </select>
+        
+        <label class="form-label" for="totalV">Total Volume</label>
+        <input
+          class="form-control"
+          type="number"
+          id="twoAtotal"
+          name="totalV"
+          step="0.01"
+          min="0"
+          max="17000"
+        />
+       
+        <label class="form-label" for="waterV">Water Volume</label>
+        <input
+          class="form-control"
+          type="number"
+          id="twoAwater"
+          name="waterV"
+          step="0.01"
+          min="0"
+          max="17000"
+        />
+        
+        <label class="form-label" for="productV">Product Volume</label>
+        <input
+          class="form-control"
+          type="number"
+          id="twoAproduct"
+          name="productV"
+          step="0.01"
+          min="0"
+          max="17000"
+        />
+
+        <button class="btn btn-success mt-3">Submit</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="col-5">
+    <div class="inputs">
+      <h2>Tank 2B</h2>
+      <form id="tank2BInputs" class="flex">
+        <input type="number" step="0.01" placeholder="DTP" />
+        <input type="number" step="0.01" placeholder="DTW" />
+        <button class="btn btn-primary">Calculate</button>
+      </form>
+    </div>
+
+    <div>
+      <form action="/volumes" method="post">
+        <label class="form-label" for="zone">Zone</label>
+        <input class="form-control" type="number" name="zone" id="zone" value="2" min="2" max="2">
+        
+        <label class="form-label" for="tank">Tank: </label>
+        <select class="form-select" name="tank" id="tank">
+            <option value="2B">2B</option>
+        </select> 
+        
+        <label class="form-label" for="totalV">Total Volume</label>
+        <input
+          class="form-control"
+          type="number"
+          id="twoBtotal"
+          name="totalV"
+          step="0.01"
+          min="0"
+          max="17000"
+        />
+        
+        <label class="form-label" for="waterV">Water Volume</label>
+        <input
+          class="form-control"
+          type="number"
+          id="twoBwater"
+          name="waterV"
+          step="0.01"
+          min="0"
+          max="17000"
+        />
+        
+        <label class="form-label" for="productV">Product Volume</label>
+        <input
+          class="form-control"
+          type="number"
+          id="twoBproduct"
+          name="productV"
+          step="0.01"
+          min="0"
+          max="17000"
+        />
+
+        <button class="btn btn-success mt-3">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<a href="/">Back</a>

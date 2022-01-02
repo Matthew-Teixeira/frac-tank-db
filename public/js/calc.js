@@ -34,7 +34,7 @@ const oneBGalArr = [frac1BTotalOutput, frac1BWaterOutput, fra1BProductOutput];
 // 1B //
 
 // 2A //
-const frac2A = new FracTank("frac 2A", 105.02);
+const frac2A = new FracTank("frac 2A", 100.44);
 const form2A = document.querySelector('#tank2AInputs');
 const frac2ATotalInchOut = document.querySelector('#twoA-total-in');
 const frac2AWaterInchOut = document.querySelector('#twoA-water-in');
@@ -47,7 +47,7 @@ const twoAGalArr = [frac2ATotalOutput, frac2AWaterOutput, fra2AProductOutput];
 // 2A //
 
 // 2B //
-const frac2B = new FracTank("frac 2B", 105.1);
+const frac2B = new FracTank("frac 2B", 101.94);
 const form2B = document.querySelector('#tank2BInputs');
 const frac2BTotalInchOut = document.querySelector('#twoB-total-in');
 const frac2BWaterInchOut = document.querySelector('#twoB-water-in');
@@ -60,7 +60,7 @@ const twoBGalArr = [frac2BTotalOutput, frac2BWaterOutput, fra2BProductOutput];
 // 2B //
 
 // 3A //
-const frac3A = new FracTank("frac 3A", 105.3);
+const frac3A = new FracTank("frac 3A", 100.08);
 const form3A = document.querySelector('#tank3AInputs');
 const frac3ATotalInchOut = document.querySelector('#threeA-total-in');
 const frac3AWaterInchOut = document.querySelector('#threeA-water-in');
@@ -73,7 +73,7 @@ const threeAGalArr = [frac3ATotalOutput, frac3AWaterOutput, fra3AProductOutput];
 // 3A //
 
 // 3B //
-const frac3B = new FracTank("frac 3B", 105.33);
+const frac3B = new FracTank("frac 3B", 100.26);
 const form3B = document.querySelector('#tank3BInputs');
 const frac3BTotalInchOut = document.querySelector('#threeB-total-in');
 const frac3BWaterInchOut = document.querySelector('#threeB-water-in');

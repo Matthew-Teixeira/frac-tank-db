@@ -3,6 +3,7 @@ const app = express();
 const path = require('path');
 const mongoose = require('mongoose');
 const methodOverride = require('method-override');
+const ejsMate = require('ejs-mate');
 
 const Volume = require('./models/volume');
 
@@ -15,6 +16,7 @@ mongoose.connect('mongodb://localhost:27017/fracTank')
         console.log(e)
     })
 
+app.engine('ejs', ejsMate);
 app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, 'public')));
 app.set('view engine', 'ejs');
@@ -38,9 +40,9 @@ app.get('/volumes', async (req, res) => {
 app.get('/volumes/:zones/view', async (req, res) => {
     const {zones} = req.params;
     const volumes = await Volume.find({zone: zones})
-    res.render('tanks/show', { volumes })
+    res.render('tanks/view', { volumes })
 })
-
+ 
 //Go to volume add page
 app.get('/volumes/new', (req, res) => {
     res.render('tanks/new') 
@@ -69,7 +71,7 @@ app.put('/volumes/:id', async (req, res) => {
 app.delete('/volumes/:id', async (req, res) => {
     const { id } = req.params;
     const deletedVolume = await Volume.findByIdAndDelete(id);
-    res.redirect('/volumes');
+    res.redirect(`/volumes/${deletedVolume.zone}/view`);
 })
 
 app.listen(3000, (req, res) => {

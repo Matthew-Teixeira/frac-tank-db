@@ -1,54 +1,37 @@
-<!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Add Products</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
-    </head>
-    <body>
-        <h1>Add A Product</h1>
+<% layout('partials/boilerplate') %>
+        <h1>Edit Data</h1>
 
-        <div>
-            <form action='/volumes/<%=foundVolume._id%>?_method=PUT' method="post">
-                <label for="zone">Zone</label>
-                <input type="number" name="zone" id="zone" min="1" max="3" value="<%= foundVolume.zone %>">
-                <br>
-                <label for="tank">Tank: </label>
-                <select name="tank" id="tank">
-                    <option value="1A">1A</option>
-                    <option value="1B">1B</option>
-                    <option value="2A">2A</option>
-                    <option value="2B">2B</option>
-                    <option value="3A">3A</option>
-                    <option value="3B">3B</option>
-                </select>
-                <br>
-                <label for="totalV">Total Volume</label>
-                <input type="number" id="totalV" name="totalV" step="0.01" min="0" max="17000" value="<%= foundVolume.totalV %>">
-                <br>
-                <label for="waterV">Water Volume</label>
-                <input type="number" id="waterV" name="waterV" step="0.01" min="0" max="17000" value="<%= foundVolume.waterV %>">
-                <br>
-                <label for="productV">Product Volume</label>
-                <input type="number" id="productV" name="productV" step="0.01" min="0" max="17000" value="<%= foundVolume.productV %>">
-                
-                <button>Submit</button>
-            </form>
-
-            <form action="/volumes/<%=foundVolume._id%>?_method=DELETE" method="POST">
-                <button>DELETE</button>
-            </form>
-
+        <div class="row">
+            <div class="col-4 offset-4">
+                <form action='/volumes/<%=foundVolume._id%>?_method=PUT' method="post">
+                    <label class="form-label" for="zone">Zone</label>
+                    <input class="form-control" type="number" name="zone" id="zone" min="1" max="3" value="<%= foundVolume.zone %>">
+                    <br>
+                    <label class="form-label" for="tank">Tank: </label>
+                    <select class="form-select" name="tank" id="tank">
+                        <option value="1A">1A</option>
+                        <option value="1B">1B</option>
+                        <option value="2A">2A</option>
+                        <option value="2B">2B</option>
+                        <option value="3A">3A</option>
+                        <option value="3B">3B</option>
+                    </select>
+                    <br>
+                    <label class="form-label" for="totalV">Total Volume</label>
+                    <input class="form-control" type="number" id="totalV" name="totalV" step="0.01" min="0" max="17000" value="<%= foundVolume.totalV %>">
+                    <br>
+                    <label class="form-label" for="waterV">Water Volume</label>
+                    <input class="form-control" type="number" id="waterV" name="waterV" step="0.01" min="0" max="17000" value="<%= foundVolume.waterV %>">
+                    <br>
+                    <label class="form-label" for="productV">Product Volume</label>
+                    <input class="form-control" type="number" id="productV" name="productV" step="0.01" min="0" max="17000" value="<%= foundVolume.productV %>">
+                    
+                    <button class="btn btn-success mt-2">Submit</button>
+                </form>
+    
+                <form class="d-inline" action="/volumes/<%=foundVolume._id%>?_method=DELETE" method="POST">
+                    <button class="btn btn-danger d-inline mt-3">DELETE</button>
+                </form>
+            </div>
+            <a href="/volumes/<%= foundVolume.zone %>/view">Back</a>
         </div>
-        <a href="/volumes">Back</a>
-        
-        <script src="" async defer></script>
-    </body>
-</html>

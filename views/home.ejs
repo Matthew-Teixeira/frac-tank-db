@@ -1,26 +1,37 @@
-<!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Home Page</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
-    </head>
-    <body>
-        <h1>Home Page</h1>
-        <h2>Select A Zone</h2>
-        <a href="/volumes/1/view"><h3>Zone-1</h3></a>
-        <a href="/volumes/2/view"><h3>Zone-2</h3></a>
-        <a href="/volumes/3/view"><h3>Zone-3</h3></a>
-        <p>See all volumes <a href="/volumes">here</a></p>
-        <a href="/volumes/new"><button>Add Volume</button></a>
-        
-        <script src="" async defer></script>
-    </body>
-</html>
+<% layout('partials/boilerplate') %>
+    <h1>Frac Tank Volume Measuremant Tracker</h1>
+        <div class="row mt-3">
+            <div class="col-3 offset-1">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">Zone-1</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Frac Tanks 1A & 1B</h6>
+                        <p class="card-text">Add Zone-1 Volume Data By Entering DTP & DTW. Or View Historical Data For Zone-1.</p>
+                        <a href="/volumes/1/view" class="card-link">View Data</a>
+                        <a href="/volumes/new" class="card-link">Add Volumes</a>
+                    </div>
+                  </div>
+            </div>
+            <div class="col-3 offset-1">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                      <h5 class="card-title">Zone-2</h5>
+                      <h6 class="card-subtitle mb-2 text-muted">Frac Tanks 2A & 2B</h6>
+                      <p class="card-text">Add Zone-2 Volume Data By Entering DTP & DTW. Or View Historical Data For Zone-2.</p>
+                      <a href="/volumes/2/view" class="card-link">View Data</a>
+                      <a href="/volumes/new" class="card-link">Add Volumes</a>
+                    </div>
+                  </div>
+            </div>
+            <div class="col-3 offset-1">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                      <h5 class="card-title">Zone-3</h5>
+                      <h6 class="card-subtitle mb-2 text-muted">Frac Tanks 3A & 3B</h6>
+                      <p class="card-text">Add Zone-3 Volume Data By Entering DTP & DTW. Or View Historical Data For Zone-3.</p>
+                      <a href="/volumes/3/view" class="card-link">View Data</a>
+                      <a href="/volumes/new" class="card-link">Add Volumes</a>
+                    </div>
+                  </div>
+            </div>
+        </div>

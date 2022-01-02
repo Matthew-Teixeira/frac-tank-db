@@ -1,0 +1,69 @@
+<% layout('partials/boilerplate') %>
+
+<h1>Volume Data</h1>
+        <a href="/volumes/new"><button>Add Volume</button></a>
+
+        <div class="row p-2">
+            <div class="col-6 ">
+
+                <%if(volumes[0].tank[1] === "A"){%>
+                    <h2><%=volumes[0].tank%></h2>
+                <%}%>
+                        <table class="table table-bordered table-dark">
+                          <thead>
+                            <tr>
+                              <th scope="col">Edit</th>
+                              <th scope="col">Total</th>
+                              <th scope="col">Water</th>
+                              <th scope="col">Product</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                    <%for(let v of volumes){%>
+                        <%if(v.tank[1] === "A"){%>
+                          
+                            <tr>
+                              <th scope="row"><a href="/volumes/<%=v._id%>/edit"><%=v.tank%></a></th>
+                              <td><%=v.totalV%></td>
+                              <td><%=v.waterV%></td>
+                              <td><%=v.productV%></td>
+                            </tr>
+                      
+                        <%}%>
+                    <%}%>
+                  </tbody>
+                </table>
+                 
+            </div>
+    
+            <div class="col-6">
+
+                <%if(volumes[1].tank[1] === "B"){%>
+                        <h2><%=volumes[1].tank%></h2>
+                    <%}%>
+                    <table class="table table-bordered table-dark">
+                      <thead>
+                        <tr>
+                          <th scope="col">Edit</th>
+                          <th scope="col">Total</th>
+                          <th scope="col">Water</th>
+                          <th scope="col">Product</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                    <%for(let v of volumes){%>
+                        <%if(v.tank[1] === "B"){%>
+                          <tr>
+                            <th scope="row"><a href="/volumes/<%=v._id%>/edit"><%=v.tank%></a></th>
+                            <td><%=v.totalV%></td>
+                            <td><%=v.waterV%></td>
+                            <td><%=v.productV%></td>
+                          </tr>
+                        <%}%>
+                    <%}%>
+                  </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <a href="/">Home</a>

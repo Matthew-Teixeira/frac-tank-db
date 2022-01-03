@@ -25,7 +25,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.set('view engine', 'ejs');
 
 app.use(express.urlencoded({extended: true}));
-app.use(methodOverride('_method'));
+app.use(methodOverride('_method')); 
 
 //Home Page
 app.get('/', async (req, res) => {
@@ -60,12 +60,12 @@ app.get('/volumes/:zone/new', (req, res) => {
     }
  
 })
-
+ 
 //Post new data
 app.post('/volumes', async (req, res) => {
     const newVolume = new Volume(req.body);
     await newVolume.save(); //Saved to db
-    res.redirect(`/volumes/${newVolume.zone}/view`);
+    res.redirect(`/volumes/${newVolume.zone}/view`);   
 })
 
 //Edit an entry 

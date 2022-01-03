@@ -27,6 +27,7 @@ v.save()
     console.log("Ann error occured trying to make first db entry");
     console.log(e);
 })
+*/
 
  //First ran above in node seeds.js to confirm connection
  //ran below next to seed each tank 1A, 1B, 2A, 2B, 3A, 3B
@@ -85,4 +86,3 @@ Volume.insertMany(volumeSeeds)
     console.log("Ann error occured trying to make first db entry");
     console.log(e);
 })
-*/

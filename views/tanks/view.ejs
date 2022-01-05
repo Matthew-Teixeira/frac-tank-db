@@ -26,8 +26,8 @@
           <th scope="row">
             <a href="/volumes/<%=v._id%>/edit"><%=v.tank%></a>
           </th>
-          <td>date</td>
-          <td>time</td>
+          <td><%=formatDate(v.date)%></td>
+          <td><%=formatTime(v.created_at)%></td>
           <td><%=v.totalV%></td>
           <td><%=v.waterV%></td>
           <td><%=v.productV%></td>
@@ -58,8 +58,8 @@
           <th scope="row">
             <a href="/volumes/<%=v._id%>/edit"><%=v.tank%></a>
           </th>
-          <td>date</td>
-          <td>time</td>
+          <td><%=formatDate(v.date)%></td>
+          <td><%=formatTime(v.created_at)%></td>
           <td><%=v.totalV%></td>
           <td><%=v.waterV%></td>
           <td><%=v.productV%></td>

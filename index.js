@@ -4,6 +4,7 @@ const path = require('path');
 const mongoose = require('mongoose');
 const methodOverride = require('method-override');
 const ejsMate = require('ejs-mate');
+const { formatDate, formatTime } = require('./public/js/dates.js');
 
 const Volume = require('./models/volume');
 
@@ -25,11 +26,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.set('view engine', 'ejs');
 
 app.use(express.urlencoded({extended: true}));
-app.use(methodOverride('_method'));
+app.use(methodOverride('_method')); 
 
 //Home Page
 app.get('/', async (req, res) => {
-    const volumes = await Volume.find({});
+    const volumes = await Volume.find({});    
     res.render('home', { volumes });
 })
 
@@ -43,7 +44,7 @@ app.get('/volumes', async (req, res) => {
 app.get('/volumes/:zones/view', async (req, res) => {
     const {zones} = req.params;
     const volumes = await Volume.find({zone: zones})
-    res.render('tanks/view', { volumes })
+    res.render('tanks/view', { volumes, formatDate, formatTime })
 })
  
 //Go to volume add page
@@ -60,12 +61,12 @@ app.get('/volumes/:zone/new', (req, res) => {
     }
  
 })
-
+ 
 //Post new data
 app.post('/volumes', async (req, res) => {
     const newVolume = new Volume(req.body);
     await newVolume.save(); //Saved to db
-    res.redirect(`/volumes/${newVolume.zone}/view`);
+    res.redirect(`/volumes/${newVolume.zone}/view`);   
 })
 
 //Edit an entry 

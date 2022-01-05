@@ -36,6 +36,7 @@ const volumeSeeds = [
     {
         zone: 1,
         tank: '1A',
+        date: 2021-05-29,
         totalV: 6607.20,
         waterV: 4992.40,
         productV: 1614.80
@@ -43,6 +44,7 @@ const volumeSeeds = [
     {
         zone: 1,
         tank: '1B',
+        date: 2021-05-29,
         totalV: 4931.92,
         waterV: 2954.24,
         productV: 1977.68
@@ -50,6 +52,7 @@ const volumeSeeds = [
     {
         zone: 2,
         tank: '2A',
+        date: 2021-05-29,
         totalV: 895.63,
         waterV: 457.70,
         productV: 443.96
@@ -57,6 +60,7 @@ const volumeSeeds = [
     {
         zone: 2,
         tank: '2B',
+        date: 2021-05-29,
         totalV: 3750.98,
         waterV: 3548.96,
         productV: 202.02
@@ -64,6 +68,7 @@ const volumeSeeds = [
     {
         zone: 3,
         tank: '3A',
+        date: 2021-05-29,
         totalV: 10219.72,
         waterV: 6526.48,
         productV: 3693.24
@@ -71,6 +76,7 @@ const volumeSeeds = [
     {
         zone: 3,
         tank: '3B',
+        date: 2021-05-29,
         totalV: 12066.48,
         waterV: 7626.28,
         productV: 4440.20

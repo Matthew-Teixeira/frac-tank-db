@@ -4,6 +4,7 @@ const path = require('path');
 const mongoose = require('mongoose');
 const methodOverride = require('method-override');
 const ejsMate = require('ejs-mate');
+const { formatDate, formatTime } = require('./public/js/dates.js');
 
 const Volume = require('./models/volume');
 
@@ -29,7 +30,7 @@ app.use(methodOverride('_method'));
 
 //Home Page
 app.get('/', async (req, res) => {
-    const volumes = await Volume.find({});
+    const volumes = await Volume.find({});    
     res.render('home', { volumes });
 })
 
@@ -43,7 +44,7 @@ app.get('/volumes', async (req, res) => {
 app.get('/volumes/:zones/view', async (req, res) => {
     const {zones} = req.params;
     const volumes = await Volume.find({zone: zones})
-    res.render('tanks/view', { volumes })
+    res.render('tanks/view', { volumes, formatDate, formatTime })
 })
  
 //Go to volume add page

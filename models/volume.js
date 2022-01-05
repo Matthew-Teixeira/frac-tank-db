@@ -11,6 +11,14 @@ const volumeSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    date: {
+        type: Date,
+        required: true
+    },
+    created_at: {
+        type: Date,
+        default: Date.now
+    },
     totalV: {
         type: Number,
         required: true,

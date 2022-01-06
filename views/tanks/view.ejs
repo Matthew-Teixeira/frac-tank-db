@@ -3,6 +3,7 @@
 <h1>Zone-<%=volumes[0].zone%> Volume Data</h1>
 
 <a href="/volumes/<%=volumes[0].zone%>/new"><button class="btn btn-primary">Add Volume</button></a>
+<button id="csv-btn" type="button">download CSV</button>
 
 <div class="row p-2">
   <div class="col-6">
@@ -23,9 +24,9 @@
       <tbody>
         <%for(let v of volumes){%> <%if(v.tank[1] === "A"){%>
         <tr>
-          <th scope="row">
+          <td scope="row">
             <a href="/volumes/<%=v._id%>/edit"><%=v.tank%></a>
-          </th>
+          </td>
           <td><%=formatDate(v.date)%></td>
           <td><%=formatTime(v.created_at)%></td>
           <td><%=v.totalV%></td>
@@ -55,9 +56,9 @@
       <tbody>
         <%for(let v of volumes){%> <%if(v.tank[1] === "B"){%>
         <tr>
-          <th scope="row">
+          <td scope="row">
             <a href="/volumes/<%=v._id%>/edit"><%=v.tank%></a>
-          </th>
+          </td>
           <td><%=formatDate(v.date)%></td>
           <td><%=formatTime(v.created_at)%></td>
           <td><%=v.totalV%></td>

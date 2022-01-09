@@ -4,19 +4,19 @@
   <div class="col-5 offset-1">
     <div class="inputs">
       <h2 id="tank-page">Tank 1A</h2>
-      <form id="tank1AInputs" class="d-flex align-items-center flex-wrap">
-        <input type="number" step="0.01" placeholder="DTP" />
-        <input type="number" step="0.01" placeholder="DTW" />
+      <form id="tank1AInputs" class="d-flex align-items-center flex-wrap validated-form" novalidate>
+        <input type="number" step="0.01" placeholder="DTP" required/>
+        <input type="number" step="0.01" placeholder="DTW" required/>
         <button class="btn btn-primary">Calculate</button>
       </form>
     </div>
 
     <div class="mt-3">
-      <form action="/volumes" method="post">
+      <form action="/volumes" method="post" class="validated-form" novalidate>
         <div class="d-flex flex-wrap">
           <div class="d-flex flex-column">
             <label class="form-label" for="date">Date</label>
-            <input id="date" class="form-control" type="date" name="date"/>
+            <input id="date" class="form-control" type="date" name="date" required/>
           </div> 
           <div class="d-flex flex-column">
             <label class="form-label" for="zone">Zone</label>
@@ -28,12 +28,13 @@
               value="1"
               min="1"
               max="1"
+              required
             />
           </div>
 
           <div class="d-flex flex-column">
             <label class="form-label" for="tank">Tank</label>
-            <select class="form-select" name="tank" id="tank">
+            <select class="form-select" name="tank" id="tank" required>
               <option value="1A">1A</option>
             </select>
           </div>
@@ -47,6 +48,7 @@
             step="0.01"
             min="0"
             max="17000"
+            required
           />
         
 
@@ -59,6 +61,7 @@
           step="0.01"
           min="0"
           max="17000"
+          required
         />
 
         <label class="form-label" for="productV">Product Volume</label>
@@ -70,6 +73,7 @@
           step="0.01"
           min="0"
           max="17000"
+          required
         />
 
         <button class="btn btn-success mt-3">Submit</button>
@@ -82,19 +86,19 @@
   <div class="col-5">
     <div class="inputs">
       <h2>Tank 1B</h2>
-      <form id="tank1BInputs" class="d-flex align-items-center flex-wrap">
-        <input type="number" step="0.01" placeholder="DTP" />
-        <input type="number" step="0.01" placeholder="DTW" />
+      <form id="tank1BInputs" class="d-flex align-items-center flex-wrap validated-form" novalidate>
+        <input type="number" step="0.01" placeholder="DTP" required/>
+        <input type="number" step="0.01" placeholder="DTW" required/>
         <button class="btn btn-primary">Calculate</button>
       </form>
     </div>
 
     <div class="mt-3">
-      <form action="/volumes" method="post">
+      <form action="/volumes" method="post" class="validated-form" novalidate>
         <div class="d-flex flex-wrap">
           <div class="d-flex flex-column">
             <label class="form-label" for="date">Date</label>
-            <input class="form-control" type="date" name="date"/>
+            <input class="form-control" type="date" name="date" required/>
           </div>
           <div class="d-flex flex-column">
             <label class="form-label" for="zone">Zone</label>
@@ -106,11 +110,12 @@
               value="1"
               min="1"
               max="1"
+              required
             />
           </div>
           <div class="d-flex flex-column">
             <label class="form-label" for="tank">Tank</label>
-            <select class="form-select" name="tank" id="tank">
+            <select class="form-select" name="tank" id="tank" required>
               <option value="1B">1B</option>
             </select>
           </div>
@@ -125,6 +130,7 @@
           step="0.01"
           min="0"
           max="17000"
+          required
         />
 
         <label class="form-label" for="waterV">Water Volume</label>
@@ -136,6 +142,7 @@
           step="0.01"
           min="0"
           max="17000"
+          required
         />
 
         <label class="form-label" for="productV">Product Volume</label>
@@ -147,6 +154,7 @@
           step="0.01"
           min="0"
           max="17000"
+          required
         />
 
         <button class="btn btn-success mt-3">Submit</button>

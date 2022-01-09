@@ -18,7 +18,7 @@ mongoose.connect('mongodb://localhost:27017/fracTank')
         console.log("Mongo Connection Open")
     })
     .catch((e) => {
-        console.log("Oh No, Mongo Error Dude")
+        console.log("Oh No, Mongo Error Dude") 
         console.log(e)
     })
 

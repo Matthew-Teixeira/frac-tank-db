@@ -3,7 +3,7 @@
 
 <div class="row">
   <div class="col-4 offset-4">
-    <form action="/volumes/<%=foundVolume._id%>?_method=PUT" method="post">
+    <form action="/volumes/<%=foundVolume._id%>?_method=PUT" method="post" class="validated-form" novalidate>
       <label class="form-label" for="zone">Zone</label>
       <input
         class="form-control"
@@ -13,10 +13,11 @@
         min="1"
         max="3"
         value="<%= foundVolume.zone %>"
+        required
       />
       
         <label class="form-label" for="tank">Tank: </label>
-      <select class="form-select" name="tank" id="tank">
+      <select class="form-select" name="tank" id="tank" required>
         <%for(let t of tanks){%>
           <option value="<%=t%>" <%=foundVolume.tank === t ? 'selected' : ''%> ><%=t%></option>
         <%}%> 
@@ -32,6 +33,7 @@
         min="0"
         max="17000"
         value="<%= foundVolume.totalV %>"
+        required
       />
       
       <label class="form-label" for="waterV">Water Volume</label>
@@ -44,6 +46,7 @@
         min="0"
         max="17000"
         value="<%= foundVolume.waterV %>"
+        required
       />
       
       <label class="form-label" for="productV">Product Volume</label>
@@ -56,6 +59,7 @@
         min="0"
         max="17000"
         value="<%= foundVolume.productV %>"
+        required
       />
 
       <button class="btn btn-success mt-2">Submit</button>

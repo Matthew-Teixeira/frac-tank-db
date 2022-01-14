@@ -11,6 +11,7 @@ const flash = require('connect-flash');
 const passport = require('passport');
 const LocalStrategy = require('passport-local');
 const User = require('./models/user');
+const {isLoggedIn} = require('./middleware');
 
 const voluemsRoutes = require('./routes/volumes.js');//Router
 const userRoutes = require('./routes/users.js');
@@ -62,8 +63,12 @@ app.use('/volumes', voluemsRoutes);//Router
 app.use('/', userRoutes);//Router
 
 //Home Page
-app.get('/', (req, res) => {   
-    res.render('home');
+app.get('/home', isLoggedIn, (req, res) => {   
+    res.render('home'); 
+})
+
+app.get('/', (req, res) => {
+    res.render('landing'); 
 })
 
 //Middleware

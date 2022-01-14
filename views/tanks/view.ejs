@@ -3,7 +3,7 @@
 <h1>Zone-<%=volumes[0].zone%> Volume Data</h1>
 
 <a href="/volumes/<%=volumes[0].zone%>/new"><button class="btn btn-primary">Add Volume</button></a>
-<button id="csv-btn" type="button">download CSV</button>
+<button class="btn btn-info" id="csv-btn" type="button">Download CSV</button>
 
 <div class="row p-2">
   <div class="col-6">
@@ -22,7 +22,8 @@
         </tr>
       </thead>
       <tbody>
-        <%for(let v of volumes){%> <%if(v.tank[1] === "A"){%>
+        <%for(let v of volumes){%> 
+          <%if(v.tank[1] === "A"){%>
         <tr>
           <td scope="row">
             <a href="/volumes/<%=v._id%>/edit"><%=v.tank%></a>
@@ -33,7 +34,8 @@
           <td><%=v.waterV%></td>
           <td><%=v.productV%></td>
         </tr>
-        <%}%> <%}%>
+          <%}%> 
+        <%}%>
       </tbody>
     </table>
   </div>
@@ -54,7 +56,8 @@
         </tr>
       </thead>
       <tbody>
-        <%for(let v of volumes){%> <%if(v.tank[1] === "B"){%>
+        <%for(let v of volumes){%> 
+          <%if(v.tank[1] === "B"){%>
         <tr>
           <td scope="row">
             <a href="/volumes/<%=v._id%>/edit"><%=v.tank%></a>
@@ -65,8 +68,10 @@
           <td><%=v.waterV%></td>
           <td><%=v.productV%></td>
         </tr>
-        <%}%> <%}%>
+          <%}%> 
+        <%}%>
       </tbody>
     </table>
   </div>
 </div>
+<a href="/volumes/<%=volumes[0].zone%>/new"><button class="btn btn-primary">Add Volume</button></a>

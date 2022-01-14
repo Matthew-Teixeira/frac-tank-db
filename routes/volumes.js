@@ -25,7 +25,7 @@ router.get('/:zones/view', isLoggedIn, catchAsync(async (req, res) => {
 router.get('/:zone/new', isLoggedIn, (req, res) => { 
     const { zone } = req.params;
     if(zone == 1){
-        res.render(`tanks/zone1`, { tanks, zones });
+        res.render(`tanks/zone1`, { tanks, zones, zone });
     }
     else if(zone == 2){
         res.render(`tanks/zone2`, { tanks, zones });

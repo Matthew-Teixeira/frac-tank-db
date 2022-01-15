@@ -5,7 +5,13 @@ const User = require('../models/user');
 const catchAsync = require('../utils/catchAsync')
 
 router.get('/register', (req, res) => {
-    res.render('users/register');
+    if(req.user && req.user.isAdmin){
+        res.render('users/register');
+    }
+    else{
+        req.flash('error', 'Only admins can register new users.')
+        res.redirect('/login');
+    }
 })
 
 router.post('/register', catchAsync (async (req, res) => {
@@ -30,6 +36,7 @@ router.post('/login', passport.authenticate('local', { failureFlash: true, failu
     req.flash('success', 'Welcome back!');
     const redirectUrl = req.session.returnTo || '/home'
     delete req.session.returnTo;
+    console.log(req.user);
     res.redirect(redirectUrl);
 })
 

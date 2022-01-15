@@ -25,9 +25,16 @@
         <%for(let v of volumes){%> 
           <%if(v.tank[1] === "A"){%>
         <tr>
-          <td scope="row">
-            <a href="/volumes/<%=v._id%>/edit"><%=v.tank%></a>
-          </td>
+          <% if(currentUser.isAdmin){ %>
+            <td scope="row">
+              <a href="/volumes/<%=v._id%>/edit"><%=v.tank%></a>
+            </td>
+          <% } %>
+          <% if(!currentUser.isAdmin){ %>
+            <td scope="row">
+              <%=v.tank%>
+            </td>
+          <% } %>
           <td><%=formatDate(v.created_at)%></td>
           <td><%=formatTime(v.created_at)%></td>
           <td><%=v.totalV%></td>
@@ -59,9 +66,16 @@
         <%for(let v of volumes){%> 
           <%if(v.tank[1] === "B"){%>
         <tr>
-          <td scope="row">
-            <a href="/volumes/<%=v._id%>/edit"><%=v.tank%></a>
-          </td>
+          <% if(currentUser.isAdmin){ %>
+            <td scope="row">
+              <a href="/volumes/<%=v._id%>/edit"><%=v.tank%></a>
+            </td>
+          <% } %>
+          <% if(!currentUser.isAdmin){ %>
+            <td scope="row">
+              <%=v.tank%>
+            </td>
+          <% } %>
           <td><%=formatDate(v.created_at)%></td>
           <td><%=formatTime(v.created_at)%></td>
           <td><%=v.totalV%></td>

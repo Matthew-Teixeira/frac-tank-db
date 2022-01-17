@@ -3,7 +3,7 @@ const router = express.Router({mergeParams: true})
 const catchAsync = require('../utils/catchAsync');
 const { formatDate, formatTime } = require('../public/js/dates.js');
 const Volume = require('../models/volume');
-const {isLoggedIn} = require('../middleware');
+const {isLoggedIn, validateVolumes} = require('../middleware');
 
 const tanks = ["1A", "1B", "2A", "2B", "3A", "3B"];
 const zones = [1, 2, 3]
@@ -37,7 +37,7 @@ router.get('/:zone/new', isLoggedIn, (req, res) => {
 })
  
 //Post new data
-router.post('/', isLoggedIn, catchAsync(async (req, res) => {
+router.post('/', isLoggedIn, validateVolumes, catchAsync(async (req, res) => {
     const newVolume = new Volume(req.body);
     await newVolume.save(); //Saved to db
     req.flash('success', "Volume successfully added :)")

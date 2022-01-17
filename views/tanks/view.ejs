@@ -1,14 +1,16 @@
 <% layout('partials/boilerplate') %>
 
 <h1>Zone-<%=volumes[0].zone%> Volume Data</h1>
+<div class="d-flex justify-content-center gap-3">
+  <a href="/volumes/<%=volumes[0].zone%>/new"><button class="btn btn-primary">Add Volume</button></a>
+  <button class="btn btn-info" id="csv-btn" type="button">Download CSV</button>
+</div>
 
-<a href="/volumes/<%=volumes[0].zone%>/new"><button class="btn btn-primary">Add Volume</button></a>
-<button class="btn btn-info" id="csv-btn" type="button">Download CSV</button>
 
-<div class="row p-2">
-  <div class="col-6">
+<div class="d-flex justify-content-evenly mt-5 flex-wrap">
+  <div class="">
     <%if(volumes[0].tank[1] === "A"){%>
-    <h2><%=volumes[0].tank%></h2>
+    <h2 class="text-center"><%=volumes[0].tank%></h2>
     <%}%>
     <table class="table table-bordered table-dark">
       <thead>
@@ -26,14 +28,14 @@
           <%if(v.tank[1] === "A"){%>
         <tr>
           <% if(currentUser.isAdmin){ %>
-            <td scope="row">
+            <th scope="row">
               <a href="/volumes/<%=v._id%>/edit"><%=v.tank%></a>
-            </td>
+            </th>
           <% } %>
           <% if(!currentUser.isAdmin){ %>
-            <td scope="row">
+            <th scope="row">
               <%=v.tank%>
-            </td>
+            </th>
           <% } %>
           <td><%=formatDate(v.created_at)%></td>
           <td><%=formatTime(v.created_at)%></td>
@@ -47,9 +49,9 @@
     </table>
   </div>
 
-  <div class="col-6">
+  <div class="">
     <%if(volumes[1].tank[1] === "B"){%>
-    <h2><%=volumes[1].tank%></h2>
+    <h2 class="text-center"><%=volumes[1].tank%></h2>
     <%}%>
     <table class="table table-bordered table-dark">
       <thead>
@@ -67,14 +69,14 @@
           <%if(v.tank[1] === "B"){%>
         <tr>
           <% if(currentUser.isAdmin){ %>
-            <td scope="row">
+            <th scope="row">
               <a href="/volumes/<%=v._id%>/edit"><%=v.tank%></a>
-            </td>
+            </th>
           <% } %>
           <% if(!currentUser.isAdmin){ %>
-            <td scope="row">
+            <th scope="row">
               <%=v.tank%>
-            </td>
+            </th>
           <% } %>
           <td><%=formatDate(v.created_at)%></td>
           <td><%=formatTime(v.created_at)%></td>
@@ -88,4 +90,3 @@
     </table>
   </div>
 </div>
-<a href="/volumes/<%=volumes[0].zone%>/new"><button class="btn btn-primary">Add Volume</button></a>

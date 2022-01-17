@@ -46,6 +46,7 @@ const store = new MongoStore({
 //Session and flash
 const sessionConfig = { 
     store: store,
+    name: 'session',
     secret: secret,
     resave: false,
     saveUninitialized: true,

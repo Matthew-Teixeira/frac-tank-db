@@ -1,3 +1,7 @@
+ if(process.env.NODE_ENV !== "production") {
+     require('dotenv').config(); 
+}
+
 const express = require('express');
 const app = express();
 const path = require('path');
@@ -16,7 +20,11 @@ const {isLoggedIn} = require('./middleware');
 const voluemsRoutes = require('./routes/volumes.js');//Router
 const userRoutes = require('./routes/users.js');
 
-mongoose.connect('mongodb://localhost:27017/fracTank') 
+const MongoStore = require('connect-mongo');
+
+const dbUrl = process.env.DB_URL || 'mongodb://localhost:27017/fracTank'
+
+mongoose.connect(dbUrl) 
     .then(() => {
         console.log("Mongo Connection Open")
     })
@@ -25,9 +33,20 @@ mongoose.connect('mongodb://localhost:27017/fracTank')
         console.log(e)
     })
 
+const secret = process.env.SECRET || "words";
+const store = new MongoStore({
+    mongoUrl: dbUrl,
+    touchAfter: 24 * 60 * 60,
+    crypto: {
+        secret: secret
+    }
+}) 
+
+
 //Session and flash
 const sessionConfig = { 
-    secret: 'words',
+    store: store,
+    secret: secret,
     resave: false,
     saveUninitialized: true,
         cookie: {
@@ -83,6 +102,7 @@ app.use((err, req, res, next) => {
     res.status(statusCode).render('error', { err });//pass entire error to template
 })
 
-app.listen(3000, (req, res) => {
-    console.log("Connected to 3000")
-})  
+const port = process.env.PORT ||3000
+app.listen(port, () => {
+    console.log(`Serving on port ${port}`);
+})   

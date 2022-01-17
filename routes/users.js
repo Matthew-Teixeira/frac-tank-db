@@ -16,11 +16,20 @@ router.get('/register', (req, res) => {
 
 router.post('/register', catchAsync (async (req, res) => {
     try{
-        const { username, email, password } = req.body;
-        const user = await new User({ username, email });
-        const registeredUser = await User.register(user, password);
-        req.flash('success', "Welcome!");
-        res.redirect('/');
+        const { username, email, password, password2 } = req.body;
+        if(password == password2){
+            const user = await new User({ username, email });
+            const registeredUser = await User.register(user, password);
+            req.login(registeredUser, err => {
+            if(err) return next(err)
+
+            req.flash('success', "New User Registered");
+            res.redirect('/'); 
+        })
+        } else{
+            req.flash('error', "Password does not match");
+            res.redirect('register');
+        }
     } catch(e) {
         req.flash('error', e.message);
         res.redirect('register');
@@ -47,3 +56,11 @@ router.get('/logout', (req, res) => {
 })
 
 module.exports = router;
+
+// if(req.user && req.user.isAdmin){
+//     res.render('users/register');
+// }
+// else{
+//     req.flash('error', 'Only admins can register new users.')
+//     res.redirect('/login');
+// }

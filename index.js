@@ -102,6 +102,7 @@ app.use((err, req, res, next) => {
     res.status(statusCode).render('error', { err });//pass entire error to template
 })
 
-app.listen(3000, (req, res) => {
-    console.log("Connected to 3000")
-})  
+const port = process.env.PORT ||3000
+app.listen(port, () => {
+    console.log(`Serving on port ${port}`);
+})   

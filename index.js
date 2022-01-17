@@ -22,7 +22,7 @@ const userRoutes = require('./routes/users.js');
 
 const MongoStore = require('connect-mongo');
 
-const dbUrl = process.env.DB_URL //|| 'mongodb://localhost:27017/fracTank'
+const dbUrl = process.env.DB_URL || 'mongodb://localhost:27017/fracTank'
 
 mongoose.connect(dbUrl) 
     .then(() => {

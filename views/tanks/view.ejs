@@ -38,7 +38,7 @@
             </th>
           <% } %>
           <td><%=formatDate(v.created_at)%></td>
-          <td><%=formatTime(v.created_at)%></td>
+          <td><%=v.created_at.toLocaleTimeString('en-US')%></td>
           <td><%=v.totalV%></td>
           <td><%=v.waterV%></td>
           <td><%=v.productV%></td>

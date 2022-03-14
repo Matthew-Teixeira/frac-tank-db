@@ -28,4 +28,27 @@ h1{
     border: solid black 1px;
 }
 
+#volume-zone-div{
+    padding-left: 0;
+}
+
+.form-label{
+    margin-top: 0.5rem;
+    margin-bottom: 1px;
+}
+
+.footer span{
+    font-family: 'Tourney', cursive;
+    color: aqua;
+}
+
 /********/
+
+@media only screen and (max-width: 991px) {
+  #tank-v-container{
+      border-top: solid rgba(0, 0, 0, 0.6) 2px;
+      padding-top: 2rem;
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+  }
+  }

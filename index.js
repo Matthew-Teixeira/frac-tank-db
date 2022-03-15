@@ -17,7 +17,7 @@ const LocalStrategy = require('passport-local');
 const User = require('./models/user');
 const {isLoggedIn} = require('./middleware');
 
-const voluemsRoutes = require('./routes/volumes.js');//Router
+const voluemsRoutes = require('./routes/volumes.js');//Router 
 const userRoutes = require('./routes/users.js');
 
 const MongoStore = require('connect-mongo');
@@ -39,7 +39,7 @@ const store = new MongoStore({
     mongoUrl: dbUrl,
     touchAfter: 24 * 60 * 60,
     crypto: {
-        secret: secret
+        secret: secret 
     }
 }) 
 

@@ -7,3 +7,4 @@ module.exports.formatDate = (date) => {
 module.exports.formatTime = (time) => {
     return moment(time).format("hh:mm:ss a");
 }
+

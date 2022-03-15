@@ -21,10 +21,11 @@ const voluemsRoutes = require('./routes/volumes.js');//Router
 const userRoutes = require('./routes/users.js');
 
 const MongoStore = require('connect-mongo');
-
+const { db } = require('./models/user');
+  
 const dbUrl = process.env.DB_URL || 'mongodb://localhost:27017/fracTank'
 
-mongoose.connect(dbUrl) 
+mongoose.connect(dbUrl)  
     .then(() => {
         console.log("Mongo Connection Open")
     })
@@ -46,6 +47,7 @@ const store = new MongoStore({
 //Session and flash
 const sessionConfig = { 
     store: store,
+    name: 'session',
     secret: secret,
     resave: false,
     saveUninitialized: true,
@@ -102,7 +104,7 @@ app.use((err, req, res, next) => {
     res.status(statusCode).render('error', { err });//pass entire error to template
 })
 
-const port = process.env.PORT ||3000
+const port = process.env.PORT || 3000
 app.listen(port, () => {
     console.log(`Serving on port ${port}`);
 })   

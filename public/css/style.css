@@ -38,8 +38,10 @@ h1{
 }
 
 .footer span{
+    font-size: 1.5rem;
     font-family: 'Tourney', cursive;
     color: aqua;
+    padding: .5rem;
 }
 
 /********/

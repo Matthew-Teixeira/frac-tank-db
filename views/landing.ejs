@@ -8,7 +8,10 @@
             <p class="card-text">Login to CPC Huntersville Frac Tank Measurement System</p>
                 <div class="d-flex justify-content-evenly">
                     <a href="/login" class="btn btn-success">Login</a>
-                    <a href="/register" class="btn btn-success">Register</a>
+                    <% if(currentUser)  { %>
+                        <a href="/register" class="btn btn-success">Register</a>
+                    <% } %>
+                        
                 </div>
             </div>
         </div>

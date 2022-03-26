@@ -26,7 +26,7 @@ const Joi = BaseJoi.extend(extention);
 module.exports.volumeSchema = Joi.object({
         zone: Joi.number().required().min(1).max(3),
         tank: Joi.string().required(),
-        totalV: Joi.number().required().min(0).max(13000),
-        waterV: Joi.number().required().min(0).max(13000),
-        productV: Joi.number().required().min(0).max(13000)
+        totalV: Joi.number().required().min(0).max(17000),
+        waterV: Joi.number().required().min(0).max(17000),
+        productV: Joi.number().required().min(0).max(17000)
 })

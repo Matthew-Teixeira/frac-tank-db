@@ -2,16 +2,16 @@
 
 <h1>Zone-<%=volumes[0].zone%> Volume Data</h1>
 <div class="d-flex justify-content-center gap-3">
-  <a href="/volumes/<%=volumes[0].zone%>/new"><button class="btn btn-primary">Add Volume</button></a>
+  <a href="/volumes/<%=volumes[0].zone%>/new"
+    ><button class="btn btn-primary">Add Volume</button></a
+  >
   <button class="btn btn-info" id="csv-btn" type="button">Download CSV</button>
 </div>
 
-
 <div class="d-flex justify-content-evenly mt-5 flex-wrap">
   <div class="">
-    <%if(volumes[0].tank[1] === "A"){%>
-    <h2 class="text-center"><%=volumes[0].tank%></h2>
-    <%}%>
+    <h2 class="text-center"><%=volumes[0].zone%>A</h2>
+
     <table class="table table-bordered table-dark">
       <thead>
         <tr>
@@ -24,18 +24,14 @@
         </tr>
       </thead>
       <tbody>
-        <%for(let v of volumes){%> 
-          <%if(v.tank[1] === "A"){%>
+        <%for(let v of volumes){%> <%if(v.tank[1] === "A"){%>
         <tr>
           <% if(currentUser.isAdmin){ %>
-            <th scope="row">
-              <a href="/volumes/<%=v._id%>/edit"><%=v.tank%></a>
-            </th>
-          <% } %>
-          <% if(!currentUser.isAdmin){ %>
-            <th scope="row">
-              <%=v.tank%>
-            </th>
+          <th scope="row">
+            <a href="/volumes/<%=v._id%>/edit"><%=v.tank%></a>
+          </th>
+          <% } %> <% if(!currentUser.isAdmin){ %>
+          <th scope="row"><%=v.tank%></th>
           <% } %>
           <td><%=formatDate(v.created_at)%></td>
           <td><%=formatTime(v.created_at - 14400000)%></td>
@@ -43,16 +39,13 @@
           <td><%=v.waterV%></td>
           <td><%=v.productV%></td>
         </tr>
-          <%}%> 
-        <%}%>
+        <%}%> <%}%>
       </tbody>
     </table>
   </div>
 
   <div class="">
-    <%if(volumes[1].tank[1] === "B"){%>
-    <h2 class="text-center"><%=volumes[1].tank%></h2>
-    <%}%>
+    <h2 class="text-center"><%=volumes[0].zone%>B</h2>
     <table class="table table-bordered table-dark">
       <thead>
         <tr>
@@ -65,18 +58,14 @@
         </tr>
       </thead>
       <tbody>
-        <%for(let v of volumes){%> 
-          <%if(v.tank[1] === "B"){%>
+        <%for(let v of volumes){%> <%if(v.tank[1] === "B"){%>
         <tr>
           <% if(currentUser.isAdmin){ %>
-            <th scope="row">
-              <a href="/volumes/<%=v._id%>/edit"><%=v.tank%></a>
-            </th>
-          <% } %>
-          <% if(!currentUser.isAdmin){ %>
-            <th scope="row">
-              <%=v.tank%>
-            </th>
+          <th scope="row">
+            <a href="/volumes/<%=v._id%>/edit"><%=v.tank%></a>
+          </th>
+          <% } %> <% if(!currentUser.isAdmin){ %>
+          <th scope="row"><%=v.tank%></th>
           <% } %>
           <td><%=formatDate(v.created_at)%></td>
           <td><%=formatTime(v.created_at - 14400000)%></td>
@@ -84,8 +73,7 @@
           <td><%=v.waterV%></td>
           <td><%=v.productV%></td>
         </tr>
-          <%}%> 
-        <%}%>
+        <%}%> <%}%>
       </tbody>
     </table>
   </div>

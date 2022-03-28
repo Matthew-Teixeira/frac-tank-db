@@ -23,7 +23,7 @@ const userRoutes = require('./routes/users.js');
 const MongoStore = require('connect-mongo');
 const { db } = require('./models/user');
   
-const dbUrl = process.env.DB_URL || 'mongodb://localhost:27017/fracTank'
+const dbUrl = /*process.env.DB_URL ||*/ 'mongodb://localhost:27017/fracTank'
 
 mongoose.connect(dbUrl)  
     .then(() => {
@@ -104,7 +104,7 @@ app.use((err, req, res, next) => {
     res.status(statusCode).render('error', { err });//pass entire error to template
 })
 
-const port = process.env.PORT || 3000
+const port = /*process.env.PORT ||*/ 3000
 app.listen(port, () => {
     console.log(`Serving on port ${port}`);
 })   

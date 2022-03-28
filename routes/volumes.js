@@ -16,9 +16,9 @@ router.get('/volumes', isLoggedIn, catchAsync(async (req, res, next) => {
 
 //Read volumes by zone
 router.get('/:zones/view', isLoggedIn, catchAsync(async (req, res) => {
-    const {zones} = req.params;
+    const {zone} = req.params;
     const volumes = await Volume.find({zone: zones})
-    res.render('tanks/view', { volumes, formatDate, formatTime })
+    res.render('tanks/view', { volumes, formatDate, formatTime, zone })
 }))
  
 //Go to volume add page

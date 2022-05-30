@@ -1,6 +1,10 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
-      <img class="apollo" src="https://img.icons8.com/color/48/000000/apollo.png"/>
+      <% if(!currentUser) {%> 
+      <a href="/"><img class="apollo" src="https://img.icons8.com/color/48/000000/apollo.png"/></a>
+      <% } else  { %> 
+        <a href="/home"><img class="apollo" src="https://img.icons8.com/color/48/000000/apollo.png"/></a>
+        <% } %> 
       <% if(currentUser){ %>
         <strong><span class="text-muted ms-auto mx-auto"><%=currentUser.username%></span></strong>
       <% } else{ %>

@@ -1,3 +1,3 @@
 # Frac Tank Measurement Application
   This project was inspired by a niche process requirement. This application converts distance measurements into volume, the data is than stored in a database for subsequent analysis. The app quickly converts measurements into volumes, and upon submission of that data, the team has immediate access to it. The easy-to-use interface, along with a standardized conversion algorithm, has increased the repeatability and accuracy of measurements. Eliminating the need to transcribe and interpolate field data has greatly reduced transcription error potential. Actionable data becomes available sooner, is quality checked earlier, and discrepancies rectified before deviations occur.
-  This application has been deployed through Heroku and can be found here https://rocky-anchorage-78391.herokuapp.com/
+  The demo application has been deployed through Heroku and can be found here https://rocky-anchorage-78391.herokuapp.com/
